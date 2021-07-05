@@ -5,6 +5,47 @@
   </head>
   <body>
     <main>
+      <!--Lodash template for blog post page with sidebar element and post element-->
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="post">
+      </div>
+      <div id="sidebar">
+      </div>
+    </script>
+    <!--Lodash template for posts with header incl post title, footer for post author, both are wrapped in an article element-->
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <div id="header">
+        </div>
+        <div id="footer">
+        </div>
+      </article>
+    </script>
+    <!--Lodash comment template that contains comments on post and form to submit comments-->
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+      </div>
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="textarea" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>      
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <footer>
+      </footer>
+    </script>
+      
+      <!-- Post form to create new posts -->
+      <form id="post-form" onsubmit="createPost()">
+        Title: <input type="text" id="title"><br>
+        Body: <input type="text" id="body"><br>
+        Author: <input type="text" id="author"><br>
+        <input type="submit">
+      </form>
+
+
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -15,5 +56,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
   </body>
 </html>
