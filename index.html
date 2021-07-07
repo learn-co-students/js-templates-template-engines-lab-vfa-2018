@@ -5,6 +5,21 @@
   </head>
   <body>
     <main>
+      <article>
+        <header><h2>The Results are In!</h2></header>
+        <form onsubmit="createPost();return false;">
+          Name: <input type="text" id="posterName"><br>
+          Post: <input type="textarea" id="postText"><br>
+          <input type="submit">
+        </form>
+        <footer>posted by Chuck Wooden</footer>
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="textarea" id="commentText"><br>
+          <input type="submit">
+        </form>
+        <div id="comments"></div>
+      </article>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -15,5 +30,30 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+    
+    <script id="post-template" type="text/x-lodash-template">
+      <div class="post">
+        <div class="post-body"><%- post %></div>
+        <div class="poster">
+          <p>
+            <span class="posted-by">Created By: </span>
+            <%- poster %>
+          </p>
+        </div>
+      </div>
+    </script>
+    
+    <script id="comment-template" type="text/x-lodash-template">
+      <div class="comment">
+        <div class="comment-body"><%- comment %></div>
+        <div class="commenter">
+          <p>
+            <span class="posted-by">Posted By: </span>
+            <%- commenter %>
+          </p>
+        </div>
+      </div>
+    </script>
+    
   </body>
 </html>
